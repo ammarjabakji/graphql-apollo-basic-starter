@@ -1,4 +1,5 @@
 ## Query Example
+```
 {
 friend{
   id
@@ -9,3 +10,4 @@ friend{
   }
 }
 }
+```
