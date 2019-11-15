@@ -9,10 +9,10 @@ const typeDefs = gql`
     language: String
     emails: [Email]!
   }
+
   type Email {
     email: String
   }
-
   type Query {
     friend: Friend
   }

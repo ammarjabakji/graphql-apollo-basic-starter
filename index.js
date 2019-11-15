@@ -34,7 +34,7 @@ const resolvers = {
     }
   },
   Mutation: {
-    createFriend: ({ input }) => {
+    createFriend: (root, { input }) => {
       let id = require("crypto")
         .randomBytes(10)
         .toString("hex");

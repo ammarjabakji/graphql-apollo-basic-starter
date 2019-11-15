@@ -11,3 +11,24 @@ friend{
 }
 }
 ```
+## Mutation Example
+```
+mutation {
+  createFriend(
+    input: {
+      firstName: "Ammar"
+      lastName: "Jabakji"
+      gender: "Male"
+      language: "Arabic"
+      email:"aa@ff.com"
+    }
+  ) {
+    id
+    firstName
+    lastName
+    gender
+    language
+  }
+}
+
+```
