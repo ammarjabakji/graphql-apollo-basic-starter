@@ -1,31 +1,33 @@
 import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
-  type Contact {
+  type Friend {
     id: ID
     firstName: String
     lastName: String
+    gender: String
+    language: String
+    emails: [Email]!
+  }
+  type Email {
     email: String
-    company: String
   }
 
   type Query {
-    getContacts: [Contact]
-    getOneContact(id: ID!): Contact
+    friend: Friend
   }
 
-  input ContactInput {
+  input FriendInput {
     id: ID
-    firstName: String
+    firstName: String!
     lastName: String
+    gender: String
+    language: String
     email: String
-    company: String
   }
 
   type Mutation {
-    createContact(input: ContactInput): Contact
-    updateContact(input: ContactInput): Contact
-    deleteContact(id: ID!): String
+    createFriend(input: FriendInput): Friend
   }
 `;
 
