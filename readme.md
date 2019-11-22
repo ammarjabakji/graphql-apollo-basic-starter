@@ -1,5 +1,5 @@
-
 ## Mutation Example
+
 ```
 mutation {
   createFriend(
@@ -33,11 +33,11 @@ mutation {
 ```
 
 ## Query Example
+
 note that the ID has been returned from the above mutation
 
 ```
-{
-  getFriend(id:"9b528321822bbdd53d89"){
+ {  getOneFriend(id:"5dd7f5b9f5a44c30dc0dd73e"){
     id
     firstName
     lastName
@@ -51,4 +51,32 @@ note that the ID has been returned from the above mutation
   }
 }
 
+```
+
+## Update Example
+
+```
+mutation {
+  updateFriend(
+    input: {
+      id: "5dd7f8543dab2b31765987fc"
+      firstName: "Mudar"
+      age: 29
+      language: "Arabic"
+    }
+  ) {
+    firstName
+    lastName
+    gender
+    age
+  }
+}
+```
+
+## Delete Example
+
+```
+mutation {
+  deleteFriend(id:"PUT ID HERE")
+}
 ```

@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
   type Friend {
@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getFriend(id: ID): Friend
+    getOneFriend(id: ID!): Friend
   }
 
   input FriendInput {
@@ -45,6 +45,8 @@ const typeDefs = gql`
 
   type Mutation {
     createFriend(input: FriendInput): Friend
+    updateFriend(input: FriendInput): Friend
+    deleteFriend(id: ID!): String
   }
 `;
 
