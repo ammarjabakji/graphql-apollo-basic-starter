@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 const typeDefs = gql`
   type Friend {
@@ -48,6 +48,6 @@ const typeDefs = gql`
     updateFriend(input: FriendInput): Friend
     deleteFriend(id: ID!): String
   }
-`;
+`
 
-export default typeDefs;
+export default typeDefs

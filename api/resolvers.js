@@ -1,16 +1,15 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-underscore-dangle */
-import { Friends } from './db';
+import { Friends } from './db'
 
 // resolver map
 export const resolvers = {
   Query: {
-    getOneFriend: (root, { id }) => new Promise((resolve, object) => {
+    getOneFriend: (root, { id }) =>
+      new Promise((resolve, object) => {
         Friends.findById(id, (err, friend) => {
-          if (err) reject(err);
-          else resolve(friend);
-        });
-      }),
+          if (err) reject(err)
+          else resolve(friend)
+        })
+      })
   },
   Mutation: {
     createFriend: (root, { input }) => {
@@ -21,34 +20,36 @@ export const resolvers = {
         age: input.age,
         language: input.language,
         email: input.email,
-        contacts: input.contacts,
-      });
-      newFriend.id = newFriend._id;
+        contacts: input.contacts
+      })
+      newFriend.id = newFriend._id
       return new Promise((resolve, object) => {
-        newFriend.save((err) => {
-          if (err) reject(err);
-          else resolve(newFriend);
-        });
-      });
+        newFriend.save(err => {
+          if (err) reject(err)
+          else resolve(newFriend)
+        })
+      })
     },
-    updateFriend: (root, { input }) => new Promise((resolve, object) => {
+    updateFriend: (root, { input }) =>
+      new Promise((resolve, object) => {
         Friends.findOneAndUpdate(
           { _id: input.id },
           input,
           { new: true },
           (err, friend) => {
-            if (err) reject(err);
-            else resolve(friend);
-          },
-        );
+            if (err) reject(err)
+            else resolve(friend)
+          }
+        )
       }),
-    deleteFriend: (root, { id }) => new Promise((resolve, object) => {
-        Friends.remove({ _id: id }, (err) => {
-          if (err) reject(err);
-          else resolve('Successfully deleted friend');
-        });
-      }),
-  },
-};
+    deleteFriend: (root, { id }) =>
+      new Promise((resolve, object) => {
+        Friends.remove({ _id: id }, err => {
+          if (err) reject(err)
+          else resolve('Successfully deleted friend')
+        })
+      })
+  }
+}
 
-export default resolvers;
+export default resolvers

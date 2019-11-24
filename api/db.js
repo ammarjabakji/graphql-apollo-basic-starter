@@ -1,49 +1,49 @@
-import mongoose from 'mongoose';
-import { mongoURI } from '../.env';
+import mongoose from 'mongoose'
+import { mongoURI } from '../.env'
 
 // Mongo connection
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise
 const connectDB = async () => {
   try {
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useCreateIndex: true,
-      useFindAndModify: false,
-    });
+      useFindAndModify: false
+    })
 
-    console.log('MongoDB Connected...');
+    console.log('MongoDB Connected...')
   } catch (err) {
-    console.error(err.message);
+    console.error(err.message)
     // Exit process with failure
-    process.exit(1);
+    process.exit(1)
   }
-};
-connectDB();
+}
+connectDB()
 
 const friendSchema = new mongoose.Schema({
   firstName: {
-    type: String,
+    type: String
   },
   lastName: {
-    type: String,
+    type: String
   },
   gender: {
-    type: String,
+    type: String
   },
   age: {
-    type: Number,
+    type: Number
   },
   language: {
-    type: String,
+    type: String
   },
   email: {
-    type: String,
+    type: String
   },
   contacts: {
-    type: Array,
-  },
-});
+    type: Array
+  }
+})
 
-const Friends = mongoose.model('friends', friendSchema);
+const Friends = mongoose.model('friends', friendSchema)
 
-export { Friends };
+export { Friends }
