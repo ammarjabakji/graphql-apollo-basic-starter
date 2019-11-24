@@ -1,8 +1,9 @@
-import express from "express";
-import { ApolloServer } from "apollo-server-express";
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
 
-import typeDefs from "./api/schema";
-import resolvers from "./api/resolvers";
+import typeDefs from './api/schema';
+
+import resolvers from './api/resolvers';
 
 const app = express();
 
@@ -13,15 +14,13 @@ const SERVER = new ApolloServer({
   resolvers,
   playground: {
     settings: {
-      "editor.theme": "light"
-    }
-  }
+      'editor.theme': 'light',
+    },
+  },
 });
 
 SERVER.applyMiddleware({ app });
 
-app.listen(PORT, () =>
-  console.log(
-    `🚀 GraphQL playground is running at http://localhost:4000/graphql`
-  )
-);
+app.listen(PORT, () => console.log(
+    '🚀 GraphQL playground is running at http://localhost:4000/graphql',
+  ),);

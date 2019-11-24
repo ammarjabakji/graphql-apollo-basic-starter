@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-underscore-dangle */
 import { Friends } from './db';
 
 // resolver map
@@ -21,9 +23,7 @@ export const resolvers = {
         email: input.email,
         contacts: input.contacts,
       });
-
       newFriend.id = newFriend._id;
-
       return new Promise((resolve, object) => {
         newFriend.save((err) => {
           if (err) reject(err);
