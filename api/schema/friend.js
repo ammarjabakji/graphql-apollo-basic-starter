@@ -23,7 +23,7 @@ const typeDefs = gql`
     OTHER
   }
 
-  type Query {
+  extend type Query {
     getOneFriend(id: ID!): Friend
   }
 
@@ -43,7 +43,7 @@ const typeDefs = gql`
     lastName: String
   }
 
-  type Mutation {
+  extend type Mutation {
     createFriend(input: FriendInput): Friend
     updateFriend(input: FriendInput): Friend
     deleteFriend(id: ID!): String

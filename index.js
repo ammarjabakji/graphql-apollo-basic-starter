@@ -2,6 +2,7 @@ import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 
 import typeDefs from './api/schema'
+
 import resolvers from './api/resolvers'
 
 const app = express()
